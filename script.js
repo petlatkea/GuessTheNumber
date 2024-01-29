@@ -23,6 +23,7 @@ function receiveGuess(event) {
   const value = form.guess.valueAsNumber;
   console.log("Received guess");
   console.log(value);
+  form.guess.value = "";
   checkGuess(value);
 }
 
@@ -41,6 +42,8 @@ function guessIsCorrect(guess) {
   const list = document.querySelector("#guess-list");
   const html = `<li>You guessed correctly - the number was ${guess}</li>`;
   list.insertAdjacentHTML("beforeend", html);
+
+  document.querySelector("#guess-form").remove();
 }
 
 function guessIsTooLow(guess) {
